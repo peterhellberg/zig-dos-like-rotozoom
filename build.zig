@@ -17,6 +17,10 @@ pub fn build(b: *std.Build) void {
     exe.linkSystemLibrary("GLEW");
     exe.linkSystemLibrary("pthread");
 
+    if (target.result.os.tag == .macos) {
+        exe.linkFramework("OpenGL");
+    }
+
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);
