@@ -7,7 +7,7 @@ pub fn build(b: *std.Build) void {
         .name = "zig-dos-like-rotozoom",
         .root_source_file = b.path("src/rotozoom.zig"),
         .target = target,
-        .optimize = .ReleaseSmall,
+        .optimize = .ReleaseFast,
     });
 
     exe.addCSourceFile(.{ .file = b.path("dos/dos.c") });
