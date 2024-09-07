@@ -23,3 +23,17 @@ A fairly recent version of [Zig master](https://ziglang.org/download/#release-ma
  - `SDL2`
  - `GLEW`
  - `pthread`
+
+## Compilation
+
+You should hopefully be able to compile the binary by calling `zig build`
+
+> [!Note]
+> As a convenience you can compile and run the binary via `zig build run`
+> (or `zig build run -- -w` if you want to start in windowed mode)
+
+## Links
+
+ - https://mattiasgustavsson.itch.io/dos-like
+ - https://ziglang.org/
+ - https://seancode.com/demofx/
