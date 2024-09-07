@@ -3,6 +3,11 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
 
+    const dos = b.dependency("dos", .{
+        .target = target,
+        .optimize = .ReleaseFast,
+    });
+
     const exe = b.addExecutable(.{
         .name = "zig-dos-like-rotozoom",
         .root_source_file = b.path("src/rotozoom.zig"),
@@ -10,8 +15,10 @@ pub fn build(b: *std.Build) void {
         .optimize = .ReleaseFast,
     });
 
-    exe.addCSourceFile(.{ .file = b.path("dos/dos.c") });
-    exe.addIncludePath(b.path("dos"));
+    exe.addCSourceFile(.{
+        .file = dos.path("source/dos.c"),
+    });
+    exe.addIncludePath(dos.path("source"));
 
     exe.linkSystemLibrary("SDL2");
     exe.linkSystemLibrary("GLEW");

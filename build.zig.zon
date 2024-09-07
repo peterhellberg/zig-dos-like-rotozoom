@@ -1,7 +1,12 @@
 .{
     .name = "zig-dos-like-rotozoom",
     .version = "0.0.0",
-    .dependencies = .{},
+    .dependencies = .{
+        .dos = .{
+            .url = "https://github.com/mattiasgustavsson/dos-like/archive/2b9c90641f81e19f692866601effdaa8ff79b435.zip",
+            .hash = "12202bf794b5df2214abd77527eb845afab4f3c4e8f49747a8fdfbe3273436cde8a3",
+        },
+    },
     .paths = .{
         "build.zig",
         "build.zig.zon",
