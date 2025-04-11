@@ -1,5 +1,6 @@
 .{
-    .name = "zig-dos-like-rotozoom",
+    .name = .dos_like_rotozoom,
+    .fingerprint = 0x5e40626e93f43b38,
     .version = "0.0.0",
     .dependencies = .{
         .dos = .{
