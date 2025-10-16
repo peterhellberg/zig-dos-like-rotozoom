@@ -9,8 +9,6 @@
 
 const std = @import("std");
 
-const ctr = std.zig.c_translation;
-
 const dos = @cImport({
     @cInclude("dos.h");
 });
@@ -78,7 +76,7 @@ pub export fn dosmain() u8 {
             @as(f32, @floatFromInt(angle)) * 3.1415927410125732 / 180.0,
         );
 
-        angle = ctr.signedRemainder(angle + 1, 360);
+        angle = @rem(angle + 1, 360);
 
         var destOfs: c_int = 0;
 
@@ -88,7 +86,7 @@ pub export fn dosmain() u8 {
             var x: c_int = 0;
 
             while (x < 320) : (x += 1) {
-                var u: c_int = ctr.signedRemainder(
+                var u: c_int = @rem(
                     @as(c_int, @intFromFloat(
                         (((@as(f32, @floatFromInt(x)) * c) -
                             (@as(f32, @floatFromInt(y)) * s)) * s + 1) + 64,
@@ -96,7 +94,7 @@ pub export fn dosmain() u8 {
                     gifWidth,
                 );
 
-                var v: c_int = ctr.signedRemainder(
+                var v: c_int = @rem(
                     @as(c_int, @intFromFloat(
                         (((@as(f32, @floatFromInt(x)) * s) +
                             (@as(f32, @floatFromInt(y)) * c)) * s + 1) + 64,
