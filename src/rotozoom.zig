@@ -9,9 +9,7 @@
 
 const std = @import("std");
 
-const dos = @cImport({
-    @cInclude("dos.h");
-});
+const dos = @import("dos");
 
 pub extern fn main() u8;
 
